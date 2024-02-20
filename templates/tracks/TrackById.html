@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row border mt-3 p-2 shadow">
+    <div class="col-12">
+        <h1>{{track.name}}</h1>
+        <hr>
+        <p><span class="text-muted">Description:</span> {{track.details }}</p>
+        <p><span class="text-muted">Duration:</span> {{track.duration }}</p>
+        <p><span class="text-muted">Subtracks:
+                <ul>
+                    {% for subtrack in track.subtracks %}
+                    <li>{{subtrack}}</li>
+                    {% endfor %}
+                </ul>
+    </div>
+</div>
+{% endblock %}
