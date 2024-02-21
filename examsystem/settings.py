@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'examsystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djangolabs',
+        'USER': 'django',
+        'PASSWORD': '506070',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

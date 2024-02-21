@@ -18,7 +18,8 @@
                         <td>{{ track.id }}</td>
                         <td>{{ track.name }}</td>
                         <td class="d-flex justify-content-around">
-                            <a href="/tracks/{{ track.id }}" class="btn btn-primary">Show</a>
+                            <a href="{% url 'TrackDetails' track.id %}" class="btn btn-primary">View</a>
+
                             <a href="#" class="btn btn-warning">Update</a>
                             <a href="#" class="btn btn-danger">Delete</a>
                         </td>

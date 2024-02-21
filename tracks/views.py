@@ -32,7 +32,7 @@ def Tracks(request):
 
 def TrackDetails(request, id):
     track = {}
-    for d in data:
-        if d['id'] == id:
-            track = d
+    for t in data:
+        if t['id'] == id:
+            track = t
     return render(request, 'tracks/TrackById.html' , context={'track':track})
