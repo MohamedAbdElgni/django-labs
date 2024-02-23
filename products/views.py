@@ -71,7 +71,7 @@ def AddProduct(request):
         product = Product()
         product.name = request.POST["name"]
         product.price = request.POST["price"]
-        product.category = Category.objects.get(id=request.POST["category"]).name
+        product.category = Category.get_category_by_name(request.POST["category"]).name
         product.img = request.FILES["img"]
         product.save()
         return HttpResponseRedirect(reverse("Products"))
@@ -92,18 +92,14 @@ def UpdateProduct(request, id):
         # print(request.FILES)
         product = Product.objects.get(id=id)
 
+        product.name = request.POST["name"]
+        product.price = request.POST["price"]
+        product.category = Category.objects.get(id=request.POST["category"]).name
         if "img" in request.FILES:
-
-            product.name = request.POST["name"]
-            product.price = request.POST["price"]
-            product.category = Category.objects.get(id=request.POST["category"]).name
             product.img = request.FILES["img"]
-            product.save()
-        else:
-            product.name = request.POST["name"]
-            product.price = request.POST["price"]
-            product.category = Category.objects.get(id=request.POST["category"]).name
-            product.save()
+
+        product.save()
+        
 
         return HttpResponseRedirect(reverse("Products"))
     else:

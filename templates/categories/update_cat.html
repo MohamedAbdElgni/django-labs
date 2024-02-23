@@ -19,16 +19,16 @@ Update Category
 
             <div class="form-group mb-2">
                 <label for="name">Category Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{category.name}}">
+                <input type="text" class="form-control" id="name" name="name" value="{{category.name}}" required>
             </div>
             <div class="form-group mb-2">
                 <label for="description">Category Description</label>
-                <textarea class="form-control" id="description" name="description"
+                <textarea class="form-control" id="description" name="description" required
                     rows="3">{{category.description}}</textarea>
             </div>
             <div class="form-group mb-2">
                 <label for="img">Image:- </label>
-                <input type="file" class="form-control-file" id="img" name="img">
+                <input type="file" class="form-control-file" id="img" name="img" required>
             </div>
             <button type="submit" class="btn btn-outline-dark" value="Update">Update</button>
         </form>
