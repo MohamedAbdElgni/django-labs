@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Categories
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center ">Categories</h1>
+    </div>
+    <div class="col-12 text-center">
+        <a href="{% url 'AddCategory' %}"
+        type="button" class="btn btn-outline-dark shadow">
+            Add New Category
+        </a>
+    </div>
+</div>
+
+
+
+
+<div class="row mt-2 p-2">
+    {%for cat in categories%}
+    <div class="col col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-img  w-100" style = "height: 200px; overflow: hidden;">
+                <img src="{{cat.get_img}}" class="" alt="{{cat.name}}">
+            </div>
+            <div class="card-body text-center p-5">
+                <div class="row">
+                    <a class="card-title text-capitalize"
+                    href="{% url 'ShowCategory' cat.id %}">
+                    <h5>{{cat.name}}</h5>
+                    </a>
+                    <p class="card-text">{{cat.description}}</p>
+                    
+                </div>
+                <div class="row p-3">
+                    <a href="{% url 'UpdateCategory' cat.id %}" class="btn btn-outline-dark col mx-2">Update</a>
+                    <a href="{% url 'DeleteCategory' cat.id %}" class="btn btn-outline-dark col mx-2">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    
+    
+</div>
+
+
+
+
+{% endblock content %}

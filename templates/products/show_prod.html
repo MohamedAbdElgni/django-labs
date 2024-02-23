@@ -1,0 +1,32 @@
+{%extends "base.html"%}
+
+{%block title%}
+{{category.name}}
+{%endblock title%}
+
+{%block content%}
+
+<div class="row m-3">
+    <div class="card shadow">
+        <div class="card-img" style="height: 300px; overflow: hidden;">
+            <img src="{{product.get_img}}" class="w-100" alt="{{product.name}}">
+        </div>
+        <div class="card-body">
+            <div class="row">
+                
+            <h1 class="card-title
+            text-center text-capitalize">{{product.name}}</h1>
+            <h5 class="card-text text-center">{{product.price}}</h5>
+            <p class="card-text text-center">{{product.category}}</p>
+            </div>
+            
+                <div class="row p-3">
+                    <a href="{% url 'UpdateProduct' product.id %}" class="btn btn-outline-dark col mx-2">Update</a>
+                    <a href="{% url 'DeleteProduct' product.id %}" class="btn btn-outline-dark col mx-2">Delete</a>
+                </div>
+        </div>
+    </div>
+</div>
+    
+    {%endblock content%}
+

@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,28 +21,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
         integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Home</title>
+    <title>
+        {% block title %}
+        E-commerce
+        {% endblock title %}
+    </title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-        <div class="container-fluid ">
-            <a href="/" class="navbar-brand">Exams</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid text-light">
+            <a href="/" class="navbar-brand">E-commerce</a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse " id="navbarCollapse">
+                <div class="navbar-nav text-light">
                     <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="{% url 'Tracks' %}" class="nav-item nav-link">Tracks</a>
+                    <a href="{% url 'Products' %}" class="nav-item nav-link">Products</a>
+                    <a href="{% url 'Categories' %}" class="nav-item nav-link">Categories</a>
+                    <a href="{% url 'AboutUs' %}" class="nav-item nav-link">About Us</a>
+
 
                 </div>
                 
             </div>
         </div>
     </nav>
-    <main class="container">
-        {% block content %} {% endblock %}
+    <main class="container-fluid ">
+        {% block content %} {% endblock content%}
+        {%block sidebar %} {% endblock sidebar %}
 
     </main>
 
@@ -49,5 +58,10 @@
 
 
 </body>
-
+<footer class="bg-dark  position-fixed bottom-0 start-0 w-100 text-light "> 
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2024 Copyright: Mohamed Ahmed
+    </div>
+    
+  </footer>
 </html>

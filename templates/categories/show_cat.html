@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+
+{%block title%}
+{{category.name}}
+{%endblock title%}
+
+{%block content%}
+
+<div class="row m-3">
+    <div class="card shadow">
+        <div class="card-img" style="height: 300px; overflow: hidden;">
+            <img src="{{category.get_img}}" class="w-100" alt="{{category.name}}">
+        </div>
+        <div class="card-body">
+            <h1 class="card-title text-center text-capitalize">{{category.name}}</h1>
+            <p class="card-text text-center">{{category.description}}</p>
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
